@@ -31,7 +31,7 @@ class PostDB {
             $statement->closeCursor();
             $this->message = "Post added successfully.";
         } catch (PDOException $e) {
-            $this->error = "Error adding post " . $e->getMessage();
+            $this->error = "Error adding post.";
         }
     }
 
@@ -47,7 +47,7 @@ class PostDB {
             $statement->closeCursor();
             $this->message = "Post edited successfully.";
         } catch (PDOException $e) {
-            $this->error = "Error editing post: " . $e->getMessage();
+            $this->error = "Error editing post.";
         }
     }
 
@@ -61,19 +61,19 @@ class PostDB {
             $statement->closeCursor();
             $this->message = "Post deleted successfully.";
         } catch (PDOException $e) {
-            $this->error = "Error deleting post: " . $e->getMessage();
+            $this->error = "Error deleting post.";
         }
     }
     public function deleteAllPosts()
     {
         try {
-            $query = 'DROP posts';
+            $query = 'TRUNCATE TABLE posts';
             $statement = $this->db->prepare($query);
             $statement->execute();
             $statement->closeCursor();
-            $this->message = "All Posts deleted successfully.";
+            $this->message = "All posts deleted successfully.";
         } catch (PDOException $e) {
-            $this->error = "Error deleting all Posts: " . $e->getMessage();
+            $this->error = "Error deleting all posts.";
         }
     }
 
@@ -87,7 +87,7 @@ class PostDB {
             $statement->closeCursor();
             return $posts;
         } catch (PDOException $e) {
-            $this->error = "Error fetching posts: " . $e->getMessage();
+            $this->error = "Error fetching posts.";
             return [];
         }
     }
@@ -108,7 +108,7 @@ class PostDB {
 
             return $post;
         } catch (PDOException $e) {
-            $this->error = "Error fetching post: " . $e->getMessage();
+            $this->error = "Error fetching post. ";
             return null;
         }
     }

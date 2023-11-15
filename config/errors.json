@@ -1,0 +1,6 @@
+{
+    "AddPostError" : "Error adding post.",
+    "EditPostError" : "Error editing post.",
+    "DeletePostError" : "Error deleting post.",
+    "DeleteAllPostsError" : "Error deleting all posts."
+}

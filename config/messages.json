@@ -1,0 +1,6 @@
+{
+    "AddPostSuccess" : "Post added successfully.",
+    "DeletePostSuccess" : "Post deleted successfully.",
+    "DeleteAllPostsSuccess" : "All posts deleted successfully.",
+    "EditPostSuccess" : "Post edited successfully."
+}

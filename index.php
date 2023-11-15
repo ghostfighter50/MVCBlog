@@ -7,6 +7,7 @@ $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? filter_i
 $post_id = filter_input(INPUT_POST, 'post_id', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_GET, 'post_id', FILTER_SANITIZE_STRING);
 $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING);
+
 $postController = new PostController($db);
 
 switch ($action) {
@@ -23,7 +24,7 @@ switch ($action) {
     case 'delete_post':
         $postController->deletePost($post_id);
         break;
-    case 'delate_all_posts':
+    case 'delete_all_posts':
         $postController->deleteAllPosts();
         break;
     case 'view_post':

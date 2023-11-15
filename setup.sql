@@ -16,6 +16,3 @@ CREATE TABLE IF NOT EXISTS posts (
 INSERT INTO posts (title, content) VALUES
     ('First Post', 'This is the content of the first blog post.'),
     ('Second Post', 'Here is the content of the second blog post.');
-
--- Display the posts table
-SELECT * FROM posts;
