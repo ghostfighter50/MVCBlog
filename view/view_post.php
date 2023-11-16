@@ -6,6 +6,7 @@ require_once('controllers/post_controller.php');
 
 <?php require_once('header.php') ?>
 
+<!-- Displaying a post if it exists -->
 <?php if ($post): ?>
     <div class="container mt-4 d-flex flex-column min-vh-100">
         <div>
@@ -23,7 +24,9 @@ require_once('controllers/post_controller.php');
                     <input type="hidden" name="post_id" value="<?= $post['postID'] ?>">
                     <input type="hidden" name="title" value="<?= $post['title'] ?>">
                     <input type="hidden" name="content" value="<?= $post['content'] ?>">
+                    <!-- Button to trigger downloading a PDF -->
                     <button type="submit" name="action" value="download_pdf" class="btn btn-primary">Download PDF</button>
+                    <!-- Button to go back to the list of posts -->
                     <button class="btn btn-dark" onclick="window.location.replace('/')">Back to List</button>
                 </form>
             </div>

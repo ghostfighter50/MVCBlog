@@ -6,5 +6,6 @@
     "FetchError": "Could not fetch posts data.",
     "NotFoundError": "Post not found.",
     "DefaultError": "Something went wrong.",
-    "PDFError":"Error generating PDF"
+    "PDFError":"Error generating PDF",
+    "404Error": "Page Not Found"
 }

@@ -9,7 +9,7 @@ require_once('model/post_db.php');
 <div class="container mt-4">
 
     <!-- Actions Section -->
-    <section id="actions">
+    <section>
         <div class="container mt-4 mx-auto">
             <div class="actions-card">
                 <div class="card-header">
@@ -62,7 +62,7 @@ require_once('model/post_db.php');
                 </section>
     <?php } else { ?>
                 <!-- Displayed if there are no blog posts -->
-                <div class="alert bg-dark" role="alert">
+                <div class="actions-card" style="width : 95.5%; margin-left : 2.25%;">
                     No blog posts exist yet.
                 </div>
     <?php } ?>
@@ -87,7 +87,7 @@ require_once('model/post_db.php');
                     </div>
                     <div class="add__inputs mb-3">
                         <label for="content" class="form-label">Content:</label>
-                        <textarea name="content" class="form-control" placeholder="Content" rows="4" required></textarea>
+                        <pre><textarea name="content" class="form-control" placeholder="Content" rows="4" required></textarea></pre>
                     </div>
                     <!-- Submit button -->
                     <div class="add__addItem">

@@ -181,26 +181,13 @@ class PostDB
     public function generatePdfContent($title, $content)
     {
         try {
-            // Create a PDF instance
             $pdf = new FPDF();
             $pdf->AddPage();
-
-            // Set font for title
-            $pdf->SetFont('Arial', 'B', 20);
-
-            // Set background color (dark theme)
-            $pdf->SetFillColor(30, 30, 30); // Dark background color
-            $pdf->Rect(0, 0, $pdf->GetPageWidth(), $pdf->GetPageHeight(), 'F');
-
-            // Set text color (white)
-            $pdf->SetTextColor(255, 255, 255);
-            $title = iconv('ISO-8859-1', 'UTF-8', $title);
-            $pdf->Cell(0, 15, $title, 0, 1, 'C');
+            $pdf->SetFont('Arial', '', 20);
+            $pdf->Cell(0, 15, html_entity_decode(utf8_decode($title), ENT_QUOTES), 0, 1, 'C');
             $pdf->SetFont('Arial', '', 12);
-            $content = iconv('ISO-8859-1', 'UTF-8', $content);
-            $pdf->MultiCell(0, 10, $content);
+            $pdf->MultiCell(0, 10, html_entity_decode(utf8_decode($content), ENT_QUOTES));
 
-            // Return PDF content as string
             return $pdf->Output('', 'S');
         } catch (Exception $e) {
             $this->error = $this->errorConfig['PDFError'];

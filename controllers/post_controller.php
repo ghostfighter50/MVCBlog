@@ -14,7 +14,6 @@ class PostController
     {
         // Create an instance of PostDB and pass the database connection and error/message configuration
         $this->postDB = new PostDB($db, $errorConfig, $messageConfig);
-
     }
 
     // Get a specific post by its ID
@@ -127,10 +126,10 @@ class PostController
             exit();
         } else {
             $pdfContent = $this->postDB->generatePdfContent($post['title'], $post['content']);
-
+            $title = $post['title'];
             // Send the PDF to the browser for download
             header('Content-Type: application/pdf');
-            header('Content-Disposition: attachment; filename="MVC_blog.pdf"');
+            header("Content-Disposition: attachment; filename='MVC_blog_$title.pdf'");
             echo $pdfContent;
             exit();
         }
