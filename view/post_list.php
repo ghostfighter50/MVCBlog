@@ -28,7 +28,7 @@ require_once('model/post_db.php');
 
     <!-- List Section -->
     <?php if ($posts) { ?>
-                <section id="list" class="list">
+        <section id="list" class="list">
                     <table class="table table-dark">
                         <thead>
                             <tr>
@@ -62,7 +62,7 @@ require_once('model/post_db.php');
                 </section>
     <?php } else { ?>
                 <!-- Displayed if there are no blog posts -->
-                <div class="actions-card" style="width : 95.5%; margin-left : 2.25%;">
+                <div class="actions-card" style="width : 95.5%; margin-left : 2.25%">
                     No blog posts exist yet.
                 </div>
     <?php } ?>
