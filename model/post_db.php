@@ -6,7 +6,6 @@ class PostDB
     private $db;
     private $errorConfig;
     private $messageConfig;
-    private $pdfConfig;
     private $error;
     private $message;
 
@@ -17,12 +16,11 @@ class PostDB
      * @param array $errorConfig Configuration for error messages
      * @param array $messageConfig Configuration for success messages
      */
-    public function __construct($db, $errorConfig, $messageConfig, $pdfConfig)
+    public function __construct($db, $errorConfig, $messageConfig)
     {
         $this->db = $db;
         $this->errorConfig = $errorConfig;
         $this->messageConfig = $messageConfig;
-        $this->pdfConfig = $pdfConfig;
     }
 
     /**

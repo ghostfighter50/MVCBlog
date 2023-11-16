@@ -10,10 +10,10 @@ class PostController
     private $postDB;
 
     // Constructor to initialize the class with a database connection
-    public function __construct($db, $errorConfig, $messageConfig, $pdfConfig)
+    public function __construct($db, $errorConfig, $messageConfig)
     {
         // Create an instance of PostDB and pass the database connection and error/message configuration
-        $this->postDB = new PostDB($db, $errorConfig, $messageConfig, $pdfConfig);
+        $this->postDB = new PostDB($db, $errorConfig, $messageConfig);
 
     }
 

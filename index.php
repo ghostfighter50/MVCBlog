@@ -13,10 +13,9 @@ $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING);
 // Load error and message configurations
 $errorConfig = json_decode(file_get_contents('config/errors.json'), true);
 $messageConfig = json_decode(file_get_contents('config/messages.json'), true);
-$pdfConfig = json_decode(file_get_contents('config/pdf.json'), true);
 
 // Create an instance of the PostController class
-$postController = new PostController($db, $errorConfig, $messageConfig, $pdfConfig);
+$postController = new PostController($db, $errorConfig, $messageConfig);
 
 // Perform action based on the requested action
 switch ($action) {
