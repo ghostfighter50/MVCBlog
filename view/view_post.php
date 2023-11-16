@@ -26,7 +26,7 @@ require_once('controllers/post_controller.php');
                     <input type="hidden" name="content" value="<?= $post['content'] ?>">
                     <!-- Button to trigger downloading a PDF -->
                     <button type="submit" name="action" value="download_pdf" class="btn btn-primary">Download PDF</button>
-                        \<!-- Button to go back to the list of posts -->
+                    <!-- Button to go back to the list of posts -->
                     <button class="btn btn-dark" onclick="window.location.replace('/')">Back to List</button>
                 </form>
             </div>
