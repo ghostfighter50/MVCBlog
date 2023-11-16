@@ -25,20 +25,32 @@
 </head>
 
 <body>
-    <?php
+<?php
     // Define a list of valid messages and errors
     $validMessages = json_decode(file_get_contents("config/messages.json"), true);
     $validErrors = json_decode(file_get_contents("config/errors.json"), true);
 
     // Retrieve messages and errors from URL parameters
-    $message = filter_input(INPUT_GET, 'message', FILTER_SANITIZE_STRING);
-    $error = filter_input(INPUT_GET, 'error', FILTER_SANITIZE_STRING);
+    $messageParam = filter_input(INPUT_GET, 'message', FILTER_SANITIZE_STRING);
+    $errorParam = filter_input(INPUT_GET, 'error', FILTER_SANITIZE_STRING);
 
-    // Check if the provided keys are valid, otherwise set default values
-    //$message = isset($validMessages[$messageKey]) ? $validMessages[$messageKey] : null;
-    //$error = isset($validErrors[$errorKey]) ? $validErrors[$errorKey] : null;
+    // Check if the parameter values exist in the JSON files
+    $message = '';
+    $error = '';
 
-  
+    if ($messageParam && in_array($messageParam, $validMessages)) {
+        $message = $messageParam;
+    } else {
+        // Handle the case where the message parameter is not valid
+        $message = null;
+    }
+
+    if ($errorParam && in_array($errorParam, $validErrors)) {
+        $error = $errorParam;
+    } else {
+        // Handle the case where the error parameter is not valid
+        $error = null;
+    }  
     ?>
 
     <!-- NavBar -->

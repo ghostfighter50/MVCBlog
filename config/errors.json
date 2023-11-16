@@ -2,5 +2,9 @@
     "AddPostError" : "Error adding post.",
     "EditPostError" : "Error editing post.",
     "DeletePostError" : "Error deleting post.",
-    "DeleteAllPostsError" : "Error deleting all posts."
+    "DeleteAllPostsError" : "Error deleting all posts.",
+    "FetchError": "Could not fetch posts data.",
+    "NotFoundError": "Post not found.",
+    "DefaultError": "Something went wrong.",
+    "PDFError":"Error generating PDF"
 }

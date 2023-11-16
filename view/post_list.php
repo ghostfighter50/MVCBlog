@@ -69,7 +69,6 @@ require_once('model/post_db.php');
 
 <!-- Add Post Modal -->
 <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
-    <!-- Modal content for adding a new post -->
     <div class="modal-dialog">
         <div class="modal-content bg-dark text-white">
             <div class="modal-header">
@@ -103,7 +102,6 @@ require_once('model/post_db.php');
 <!-- Edit Post Modals -->
 <?php foreach ($posts as $post): ?>
             <div class="modal fade" id="editPostModal<?= $post['postID'] ?>" tabindex="-1" aria-labelledby="editPostModalLabel<?= $post['postID'] ?>" aria-hidden="true">
-                <!-- Modal content for editing a post -->
                 <div class="modal-dialog">
                     <div class="modal-content bg-dark text-white">
                         <div class="modal-header">
@@ -137,7 +135,6 @@ require_once('model/post_db.php');
 
             <!-- Delete Post Modal -->
             <div class="modal fade" id="deletePostModal<?= $post['postID'] ?>" tabindex="-1" aria-labelledby="deletePostModalLabel<?= $post['postID'] ?>" aria-hidden="true">
-                <!-- Modal content for deleting a post -->
                 <div class="modal-dialog">
                     <div class="modal-content bg-dark text-white">
                         <div class="modal-header">
@@ -162,7 +159,6 @@ require_once('model/post_db.php');
 
 <!-- Delete All Posts Modal -->
 <div class="modal fade" id="deleteAllPostsModal" tabindex="-1" aria-labelledby="deleteAllPostsModalLabel" aria-hidden="true">
-    <!-- Modal content for deleting all posts -->
     <div class="modal-dialog">
         <div class="modal-content bg-dark text-white">
             <div class="modal-header">

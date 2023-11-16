@@ -1,15 +1,24 @@
 <?php
 
+// Include necessary files
 require_once('model/database.php');
 require_once('controllers/post_controller.php');
 
+// Retrieve action and input parameters
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) ?? 'list_posts';
 $post_id = filter_input(INPUT_POST, 'post_id', FILTER_SANITIZE_STRING) ?? filter_input(INPUT_GET, 'post_id', FILTER_SANITIZE_STRING);
 $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING);
 
-$postController = new PostController($db);
+// Load error and message configurations
+$errorConfig = json_decode(file_get_contents('config/errors.json'), true);
+$messageConfig = json_decode(file_get_contents('config/messages.json'), true);
+$pdfConfig = json_decode(file_get_contents('config/pdf.json'), true);
 
+// Create an instance of the PostController class
+$postController = new PostController($db, $errorConfig, $messageConfig, $pdfConfig);
+
+// Perform action based on the requested action
 switch ($action) {
     case 'list_posts':
         $postController->listPosts();
@@ -18,7 +27,6 @@ switch ($action) {
         $postController->addPost($title, $content);
         break;
     case 'edit_post':
-
         $postController->editPost($post_id, $title, $content);
         break;
     case 'delete_post':
@@ -30,6 +38,9 @@ switch ($action) {
     case 'view_post':
         $postController->getPostById($post_id);
         break;
+    case 'download_pdf':
+        $postController->downloadPdf($post_id);
+        break;   
     default:
         $postController->listPosts();
 }
