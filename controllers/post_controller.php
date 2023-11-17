@@ -1,22 +1,38 @@
 <?php
 
-// Include necessary files
+/**
+ * Include necessary files
+ */
 require_once('model/database.php');
 require_once('model/post_db.php');
 
+/**
+ * Class PostController
+ */
 class PostController
 {
-    // Instance of the PostDB class
+    /**
+     * Instance of the PostDB class
+     * @var PostDB
+     */
     private $postDB;
 
-    // Constructor to initialize the class with a database connection
+    /**
+     * Constructor to initialize the class with a database connection
+     * @param object $db - The database connection object
+     * @param array $errorConfig - The error configuration array
+     * @param array $messageConfig - The message configuration array
+     */
     public function __construct($db, $errorConfig, $messageConfig)
     {
         // Create an instance of PostDB and pass the database connection and error/message configuration
         $this->postDB = new PostDB($db, $errorConfig, $messageConfig);
     }
 
-    // Get a specific post by its ID
+    /**
+     * Get a specific post by its ID
+     * @param int $post_id - The ID of the post
+     */
     public function getPostById($post_id)
     {
         // Get post details from the database
@@ -32,7 +48,11 @@ class PostController
         }
     }
 
-    // Add a new post
+    /**
+     * Add a new post
+     * @param string $title - The title of the post
+     * @param string $content - The content of the post
+     */
     public function addPost($title, $content)
     {
         // Add a new post to the database
@@ -49,7 +69,12 @@ class PostController
         }
     }
 
-    // Edit an existing post
+    /**
+     * Edit an existing post
+     * @param int $post_id - The ID of the post
+     * @param string $title - The updated title of the post
+     * @param string $content - The updated content of the post
+     */
     public function editPost($post_id, $title, $content)
     {
         // Edit an existing post in the database
@@ -66,7 +91,10 @@ class PostController
         }
     }
 
-    // Delete a post
+    /**
+     * Delete a post
+     * @param int $post_id - The ID of the post to be deleted
+     */
     public function deletePost($post_id)
     {
         // Delete a post from the database
@@ -83,7 +111,9 @@ class PostController
         }
     }
 
-    // Delete all posts
+    /**
+     * Delete all posts
+     */
     public function deleteAllPosts()
     {
         // Delete all posts from the database
@@ -100,7 +130,9 @@ class PostController
         }
     }
 
-    // Get a list of all posts
+    /**
+     * Get a list of all posts
+     */
     public function listPosts()
     {
         // Get a list of all posts from the database
@@ -116,6 +148,10 @@ class PostController
         }
     }
 
+    /**
+     * Download a PDF for a specific post
+     * @param int $post_id - The ID of the post
+     */
     public function downloadPdf($post_id)
     {
         $post = $this->postDB->getPostById($post_id);
@@ -135,4 +171,5 @@ class PostController
         }
     }
 }
+
 ?>

@@ -1,8 +1,6 @@
 <?php
 // Include header and necessary files
 require_once('header.php');
-require_once('model/database.php');
-require_once('model/post_db.php');
 ?>
 
 <!-- Main content container -->
@@ -180,9 +178,4 @@ require_once('model/post_db.php');
 </div>
 
 <?php require_once('footer.php') ?>
-
-
-</div>
-
-<?php require_once('footer.php') ?>
-    
+</div>    

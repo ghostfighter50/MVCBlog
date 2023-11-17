@@ -16,8 +16,6 @@ $messageConfig = json_decode(file_get_contents('config/messages.json'), true);
 $Error404 = json_decode(file_get_contents('config/errors.json'), true)['404Error'];
 $postController = new PostController($db, $errorConfig, $messageConfig);
 
-// if($_SERVER['REQUEST_URI'] !== '/') return header("Location: .?action=list_posts&message=$Error404");
-
 // Perform action based on the requested action in the URI paramaters.
 switch ($action) {
     case 'list_posts':
